@@ -14,6 +14,6 @@ public class PlayerCam : MonoBehaviour
 
     void Update()
     {
-        transform.position = new Vector3(player.position.x + 2, player.position.y + 3, player.position.z - Cam);
+        transform.position = new Vector3(player.position.x + 2, player.position.y + 1, player.position.z - Cam);
     }
 }
