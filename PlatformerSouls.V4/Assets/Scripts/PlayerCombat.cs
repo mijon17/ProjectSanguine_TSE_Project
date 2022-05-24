@@ -13,6 +13,7 @@ public class PlayerCombat : MonoBehaviour
 
     public float attackRate = 2;
     float nextAttackTime = 0;
+    public AudioSource hitSound;
 
     // Update is called once per frame
     void Update()
@@ -35,6 +36,7 @@ public class PlayerCombat : MonoBehaviour
         
         foreach(Collider2D enemy in hitEnemies)
         {
+            hitSound.Play();
             enemy.GetComponent<Enemy>().TakeDamage(attackDamage);
         }
 

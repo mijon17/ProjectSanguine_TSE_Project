@@ -33,7 +33,6 @@ public class PlayerHealth : MonoBehaviour
         {
             Die();
             Destroy(gameObject);
-            SceneManager.LoadScene(2);
            
         }
     }
