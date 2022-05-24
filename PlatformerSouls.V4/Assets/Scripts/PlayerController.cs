@@ -5,12 +5,13 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float MovementSpeed = 1f;
-    public float JumpForce = 1f;
+    public float JumpForce = 5f;
     bool facingRight = true;
 
     private Rigidbody2D _rigidbody;
 
     public Animator animator;
+    bool onGround = true;
 
 
     public void Start()
@@ -28,11 +29,11 @@ public class PlayerController : MonoBehaviour
         animator.SetFloat("Speed", Mathf.Abs(movement));
 
         //Jump Code
-        if (Input.GetButtonDown("Jump") && Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
+        if (Input.GetButtonDown("Jump") && onGround)
         {
             _rigidbody.AddForce(new Vector2(0, JumpForce), ForceMode2D.Impulse);
-
-           // animator.SetBool("IsJumping", true);
+            onGround = false;
+           animator.SetTrigger("Jump");
         }
 
 
@@ -46,6 +47,11 @@ public class PlayerController : MonoBehaviour
             flip();
         }
 
+        if(Mathf.Abs(_rigidbody.velocity.y) < 0.001f)
+        {
+            onGround = true;
+        }
+
     }
 
     void flip()
@@ -54,4 +60,5 @@ public class PlayerController : MonoBehaviour
         transform.Rotate(0f, 180f, 0f);
 
     }
+
 }

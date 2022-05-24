@@ -6,14 +6,14 @@ using UnityEngine;
 public class EnemyAgro : MonoBehaviour
 {
     [SerializeField]
-    Transform player;
+    public Transform player;
 
     [SerializeField]
-    float agroRange;
+    public float agroRange;
     [SerializeField]
     float moveSpeed;
 
-
+    public bool dead = false;
     Rigidbody2D rb2d;
 
 
@@ -27,9 +27,8 @@ public class EnemyAgro : MonoBehaviour
     void Update()
     {
         float distToPlayer = Vector2.Distance(transform.position, player.position);
-        print("distToPlayer:" + distToPlayer);
 
-        if(distToPlayer < agroRange)
+        if (distToPlayer < agroRange & dead == false)
         {
             //chase
             ChasePlayer();
@@ -52,7 +51,7 @@ public class EnemyAgro : MonoBehaviour
         }
     }
 
-    private void StopChasingPlayer()
+    public void StopChasingPlayer()
     {
         rb2d.velocity = Vector2.zero;
     }

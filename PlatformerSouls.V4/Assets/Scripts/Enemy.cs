@@ -7,11 +7,25 @@ public class Enemy : MonoBehaviour
     public Animator animator;
     public int maxHealth = 100;
     int currentHealth;
+    float deathTimer = 1f;
+    public AudioSource deathSound;
 
     // Start is called before the first frame update
     public void Start()
     {
         currentHealth = maxHealth;   
+    }
+
+    private void Update()
+    {
+        if (currentHealth <= 0)
+        {
+            deathTimer -= Time.deltaTime;
+        }
+        if (deathTimer <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void TakeDamage(int damage)
@@ -22,9 +36,8 @@ public class Enemy : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            deathSound.Play();
             Die();
-            Destroy(gameObject);
-            
         }
     }
 
@@ -34,7 +47,7 @@ public class Enemy : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
+        GetComponent<EnemyAgro>().dead = true;
 
     }
    // public void AnimCompleted() //called by timeline
