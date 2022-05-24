@@ -5064,9 +5064,13 @@ PrefabInstance:
       value: Player_Knight
       objectReference: {fileID: 0}
     - target: {fileID: 7803740675448358536, guid: 032cfbb33dc5ffa48bb4b4a32921c131, type: 3}
+      propertyPath: m_Volume
+      value: 0.481
+      objectReference: {fileID: 0}
+    - target: {fileID: 7803740675448358536, guid: 032cfbb33dc5ffa48bb4b4a32921c131, type: 3}
       propertyPath: m_audioClip
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8300000, guid: 08f719293b3685e4a9e8c71bd14d328c, type: 3}
     - target: {fileID: 7803740675448358647, guid: 032cfbb33dc5ffa48bb4b4a32921c131, type: 3}
       propertyPath: healthBar
       value: 

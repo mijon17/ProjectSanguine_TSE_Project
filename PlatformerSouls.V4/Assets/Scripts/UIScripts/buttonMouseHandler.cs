@@ -26,10 +26,10 @@ public class buttonMouseHandler : MonoBehaviour
         pointer.transform.localPosition = dotPosition;
     }
     public void newGame(){ //Play Game
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void loadGame(){ //Endless
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
     public void quit(){
         manager.quitGame();
