@@ -34,7 +34,7 @@ public class UIManager : MonoBehaviour//also make script for using buttons to cl
 
     }
     public void quitGame(){
-        UnityEditor.EditorApplication.isPlaying = false;
+        //UnityEditor.EditorApplication.isPlaying = false;
         Application.Quit();
     }
 
