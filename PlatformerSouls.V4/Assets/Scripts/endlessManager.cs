@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class endlessManager : MonoBehaviour
 {
@@ -16,6 +17,8 @@ public class endlessManager : MonoBehaviour
 
     GameObject newEnemy;
 
+    public Text enemyNumText;
+    public int enemyNum;
 
     void Start()
     {
@@ -25,6 +28,7 @@ public class endlessManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        enemyNumText.text = enemyNum.ToString();
         if (randomSpawn == 0)
         {
             whichSpawn = spawnPoint1;

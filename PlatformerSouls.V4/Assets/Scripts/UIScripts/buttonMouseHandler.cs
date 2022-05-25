@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class buttonMouseHandler : MonoBehaviour
 {
@@ -24,13 +25,21 @@ public class buttonMouseHandler : MonoBehaviour
         manager.index = buttonIndex;
         pointer.transform.localPosition = dotPosition;
     }
-    public void newGame(){
-        manager.newGame();
+    public void newGame()
+    {
+        SceneManager.LoadScene(1);
     }
-    public void loadGame(){
-        manager.LoadGame();
+    public void loadGame()
+    {
+        SceneManager.LoadScene(3);
     }
-    public void quit(){
+
+    public void mainMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
+    public void quit()
+    {
         manager.quitGame();
     }
 }

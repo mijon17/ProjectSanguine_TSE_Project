@@ -24,6 +24,11 @@ public class Enemy : MonoBehaviour
         }
         if (deathTimer <= 0)
         {
+            if (GameObject.FindGameObjectWithTag("endless"))
+            {
+                GameObject.FindGameObjectWithTag("endless").GetComponent<endlessManager>().enemyNum += 1;
+            }
+            
             Destroy(gameObject);
         }
     }
@@ -36,6 +41,7 @@ public class Enemy : MonoBehaviour
 
         if(currentHealth <= 0)
         {
+            
             deathSound.Play();
             Die();
         }
@@ -50,11 +56,4 @@ public class Enemy : MonoBehaviour
         GetComponent<EnemyAgro>().dead = true;
 
     }
-   // public void AnimCompleted() //called by timeline
-    //{
-
-      //  animator.SetBool("motion", false);
-
-    //}
-
 }
